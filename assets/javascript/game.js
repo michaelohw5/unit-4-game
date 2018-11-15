@@ -23,14 +23,18 @@ $(document).ready(function () {
         gem4 = randNumGen(1, 12);
     } // works 11.15 10am
 
+    //display current goalNum onto the screen
     var displayGoal = function () {
-
-    }
+        goalText = $("#goal").text();
+        goalText += goalNum;
+        $("#goal").text(goalText);
+    } // seems to work
 
 
     //play
     var play = function () {
         assignNums();
+        displayGoal();
     }
 
     play();
