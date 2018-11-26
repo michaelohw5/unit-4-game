@@ -4,10 +4,10 @@ $(document).ready(function () {
     var userNum = 0; //users number thats displayed on the screen
     var numWin = 0;
     var numLose = 0;
-    var scoreElem = $("#score");
-    var goalElem = $("#goal");
-    var winElem = $("#wins");
-    var loseElem = $("#losses");
+    var scoreElem = $("#score"); //DOM of score
+    var goalElem = $("#goal"); //Goal DOM
+    var winElem = $("#wins"); //wins DOM
+    var loseElem = $("#losses"); //losses DOM
     var gem1; //first gem
     var gem2; //2nd gem
     var gem3; //3rd gem
@@ -29,57 +29,56 @@ $(document).ready(function () {
         gem4 = randNumGen(1, 12);
     } // works 11.15 10am
 
-    var resetDisplay = function(score) {
+    //displays score, number of wins and losses to DOM
+    var resetDisplay = function (score) {
         scoreElem.text(score);
         winElem.text(numWin);
         loseElem.text(numLose);
     }
 
-    var scoreChecker = function() {
-        if(userNum > goalNum) {
+    var scoreChecker = function () {
+        if (userNum > goalNum) {
             numLose++;
-            alert("YOU LOSE");
+            alert("YOU LOSE!");
             initGame();
         }
         else if (userNum === goalNum) {
-            numWin++;   
-            alert("YOU WIN");
+            numWin++;
+            alert("YOU WIN!");
             initGame();
         }
     }
 
     //======click functions======
-    $("#gem1").click(function() {
+    $("#gem1").click(function () {
         console.log(gem1);
         userNum += gem1;
         resetDisplay(userNum);
         scoreChecker();
     });
 
-    $("#gem2").click(function() {
+    $("#gem2").click(function () {
         console.log(gem2);
         userNum += gem2;
         resetDisplay(userNum);
         scoreChecker();
     });
 
-    $("#gem3").click(function() {
+    $("#gem3").click(function () {
         console.log(gem3);
         userNum += gem3;
         resetDisplay(userNum);
         scoreChecker();
     });
 
-    $("#gem4").click(function() {
+    $("#gem4").click(function () {
         console.log(gem4);
         userNum += gem4;
         resetDisplay(userNum);
         scoreChecker();
     });
-    
-    
     //======click function end======
-    
+
     //display current goalNum onto the screen
     var initializeDisplay = function () {
         var goalText = 0;
@@ -93,7 +92,7 @@ $(document).ready(function () {
         scoreElem.text(scoreText);
     } // seems to work
 
-    var initGame = function() {
+    var initGame = function () {
         assignNums();
         initializeDisplay();
     }
